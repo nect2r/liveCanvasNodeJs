@@ -20,9 +20,16 @@ io.on('connection', function(socket){
 
     socket.on('send_msg', function (msg) {
         //콘솔로 출력을 한다.
-        console.log(msg);
+        console.log('요청')
         //다시, 소켓을 통해 이벤트를 전송한다.
         io.emit('send_msg', msg);
+    });
+
+    socket.on('send_canvas', function (canvas) {
+        //콘솔로 출력을 한다.
+        console.log('출력')
+        //다시, 소켓을 통해 이벤트를 전송한다.
+        io.emit('send_canvas', canvas);
     });
 });
 
